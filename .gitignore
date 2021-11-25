@@ -24,3 +24,4 @@ lets-talk-server/.env
 lets-talk-client/npm-debug.log*
 lets-talk-server/npm-debug.log*
 
+lets-talk-client/.vscode/settings.json

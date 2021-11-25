@@ -1,16 +1,18 @@
-import React from 'react';
-import { GlobalContext } from '../contexts/Globals/GlobalProvider';
+import React from "react";
+import { GlobalContext } from "../contexts/Globals/GlobalProvider";
 
-import '../styles/App.css';
-import Hero from './Hero';
+import "../styles/App.css";
+import Hero from "./Hero";
+import Navigation from "./Navigation";
 
 function App() {
-	const [state, _] = React.useContext(GlobalContext);
-	return (
-		<div className={'App ' + (state.themeDark ? 'theme-dark' : 'theme-light')}>
-			<Hero />
-		</div>
-	);
+  const [state, _] = React.useContext(GlobalContext);
+  return (
+    <div className={"App " + (state.themeDark ? "theme-dark" : "theme-light")}>
+      <Navigation />
+      <Hero />
+    </div>
+  );
 }
 
 export default App;

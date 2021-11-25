@@ -1,8 +1,16 @@
 /* Globals */
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap');
 
+:root {
+  --color-primary-bg:pink;
+  --color-primary-font: black;
+  --color-primary-accent: #101010;
+  --color-primary-accent: #FFFFFF;
+}
+
 body {
   margin: 0;
+  box-sizing: border-box;
   height: 100%;
   font-family: 'IBM Plex Mono', monospace;
   -webkit-font-smoothing: antialiased;
@@ -17,4 +25,12 @@ code {
 
 span {
     margin-right: 5px;
+}
+
+.btn {
+  color: var(--color-primary-font);
+  background: var(--color-primary-bg);
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
 }

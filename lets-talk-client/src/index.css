@@ -2,10 +2,24 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap");
 
 :root {
-  --color-primary-bg: pink;
-  --color-primary-font: black;
-  --color-primary-accent: #101010;
-  --color-primary-accent: #ffffff;
+  --color-dark-bg: #121212;
+  --color-dark-font: #ededed;
+  --color-dark-accent: #915cceb0;
+  --color-dark-transparent: rgba(200, 200, 200, 0.5);
+  --color-dark-transparent-low: rgba(150, 150, 150, 0.9);
+  --color-dark-alert: #964c58;
+
+  --color-bright-bg: #cdcddd;
+  --color-bright-font: #121212;
+  --color-bright-accent: #5c66f3b0;
+  --color-bright-transparent: rgba(50, 50, 50, 0.5);
+  --color-bright-transparent-low: rgba(50, 50, 50, 0.9);
+  --color-bright-alert: #ac142f;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-dark-bg);
 }
 
 body {
@@ -20,6 +34,11 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .btn {

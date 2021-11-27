@@ -1,16 +1,24 @@
 :root {
-  --var-accent-bright: #FFA500;
+  --nav-anim-time: 2.5s;
+  --nav-elem-anim-time: 1s;
 }
 
 .nav-top {
   position: fixed;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: calc(100vw - 3.55em);
   height: 3.3em;
   z-index: 100;
-  opacity: 0;
-  background: var(--var-accent-bright);
+  background: var(--color-dark-accent);
+  color: var(--color-dark-bg);
+  transform: translateX(-100vw);
+  transition: transform var(--nav-anim-time) linear;
 }
 
 .nav-core {
@@ -18,91 +26,59 @@
   padding: 3.5px;
   justify-content: center;
   position: fixed;
-  top: 0;
-  right: 2px;
-  height: 3em;
-  width: 3em;
+  right: 0;
   z-index: 101;
 }
 
-.nav-core-icon-wrapper {
-  color: var(--var-accent-bright);
+.nav-core-icon-wrapper,
+.nav-theme-icon-wrapper {
   background: rgba(0, 0, 0, 0);
-  width: 100%;
-  height: 100%;
+  width: fit-content;
+  height: fit-content;
 }
 
-.nav-core-icon:hover {
+.nav-core-icon-wrapper {
+  color: var(--color-dark-accent);
+  transform: rotate(-360deg);
+  transition: transform var(--nav-anim-time) linear;
+  padding: 0 4px;
+}
+
+.nav-theme-icon-wrapper {
+  display: none;
+  transition: display var(--nav-elem-anim-time) linear;
+}
+
+.nav-core-icon:hover,
+.nav-theme-icon:hover,
+.nav-chat-icon:hover {
   cursor: pointer;
 }
 
 .nav-right {
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
   top: 0;
   right: 0;
   height: 100vh;
   width: 3.55em;
   z-index: 100;
-  opacity: 0;
-  background: var(--var-accent-bright);
+  background: var(--color-dark-accent);
+  color: var(--color-dark-bg);
+  transform: translateY(-100vh);
+  transition: transform var(--nav-anim-time) linear;
 }
 
-@keyframes rotateAntiClock {
-  from {
-    color: var(--var-accent-bright);
-    transform: rotate(0deg);
-  } to {
-    color: black;
-    transform: rotate(315deg);
-  }
+.nav-page-elem-wrapper {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  gap: 20px;
 }
 
-@keyframes rotateClock {
-  from {
-    color: black;
-    transform: rotate(315deg);
-  } to {
-    color: var(--var-accent-bright);
-    transform: rotate(0deg);
-  }
-}
-
-@keyframes fadeInLeft {
-  from {
-    /* opacity: 0; */
-    transform: translateX(-100vw);
-  } to {
-    /* opacity: 1; */
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeOutRight {
-  from {
-    /* opacity: 1; */
-    transform: translateX(0);
-  } to {
-    /* opacity: 0; */
-    transform: translateX(-100vw);
-  }
-}
-
-@keyframes fadeInDown {
-  from {
-    /* opacity: 0; */
-    transform: translateY(-100vh);
-  } to {
-    /* opacity: 1; */
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeOutUp {
-  from {
-    /* opacity: 1; */
-    transform: translateY(0);
-  } to {
-    /* opacity: 0; */
-    transform: translateY(-100vh);
-  }
+.nav-chat-icon {
+  padding-bottom: 0.5em;
 }

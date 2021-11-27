@@ -1,0 +1,124 @@
+.portfolio-root {
+  width: 80vw;
+  margin: 0 auto;
+  padding: 4em 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    "elem1 elem1 elem2 elem3"
+    "elem4 elem5 elem2 elem6"
+    "elem7 elem8 elem8 elem9";
+  grid-auto-columns: minmax(14em, auto);
+  grid-auto-rows: minmax(20em, auto);
+  gap: 0.5em;
+}
+
+.portfolio-elem {
+  position: relative;
+  border-radius: 5px;
+  border: 1px solid red;
+}
+
+.portfolio-elem.theme-dark:hover {
+  cursor: pointer;
+  box-shadow: 0 0 3em var(--color-dark-transparent) inset;
+}
+
+.portfolio-elem.theme-bright:hover {
+  cursor: pointer;
+  box-shadow: 0 0 3em var(--color-bright-transparent) inset;
+}
+
+.portfolio-elem-1 {
+  grid-area: elem1;
+  background: rgb(100, 50, 20);
+  /* min-width: 500px; */
+}
+
+.portfolio-elem-2 {
+  grid-area: elem2;
+  background: rgb(56, 100, 20);
+  /* min-width: 250px; */
+}
+
+.portfolio-elem-3 {
+  grid-area: elem3;
+  background: rgb(20, 97, 100);
+  /* min-width: 250px; */
+}
+
+.portfolio-elem-4 {
+  grid-area: elem4;
+  background: rgb(100, 20, 60);
+}
+
+.portfolio-elem-5 {
+  grid-area: elem5;
+  background: rgb(185, 121, 80);
+}
+
+.portfolio-elem-6 {
+  grid-area: elem6;
+  background: rgb(221, 63, 63);
+}
+
+.portfolio-elem-7 {
+  grid-area: elem7;
+  background: rgb(121, 100, 240);
+}
+
+.portfolio-elem-8 {
+  grid-area: elem8;
+  background: rgb(118, 179, 148);
+}
+
+.portfolio-elem-9 {
+  grid-area: elem9;
+  background: rgb(44, 70, 71);
+}
+
+@media only screen and (max-width: 1200px) {
+  .portfolio-root {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "elem1 elem1 elem2"
+      "elem3 elem4 elem2"
+      "elem5 elem6 elem7"
+      "elem8 elem8 elem9";
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .portfolio-root {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "elem1 elem1"
+      "elem2 elem3"
+      "elem2 elem4"
+      "elem5 elem6"
+      "elem7 elem9"
+      "elem8 elem8";
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .portfolio-root {
+    grid-template-columns: auto;
+    grid-template-areas:
+      "elem2"
+      "elem2"
+      "elem3"
+      "elem4"
+      "elem5"
+      "elem6"
+      "elem7"
+      "elem9";
+  }
+  .portfolio-elem-1 {
+    display: none;
+  }
+
+  .portfolio-elem-8 {
+    display: none;
+  }
+}

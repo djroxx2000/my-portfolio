@@ -5,11 +5,11 @@
 }
 
 .theme-dark {
-  background: black;
+  background: var(--color-dark-bg);
 }
 
 .theme-light {
-  background: white;
+  background: var(--color-bright-bg);
 }
 
 .App-link {

@@ -1,8 +1,8 @@
 .hero {
   box-sizing: border-box;
   margin: 0 auto;
-  min-height: 90vh;
-  padding-top: 5em;
+  min-height: 80vh;
+  padding-top: 15vh;
   width: 60vw;
   display: flex;
   flex-direction: column;
@@ -16,15 +16,15 @@
 }
 
 .Typewriter__cursor {
-  color: orange;
+  color: var(--color-bright-accent);
 }
 
 .theme-dark {
-  caret-color: orange;
-  color: white;
+  caret-color: var(--color-dark-accent);
+  color: var(--color-dark-font);
 }
 
 .theme-light {
-  caret-color: blue;
-  color: black;
+  caret-color: var(--color-bright-accent);
+  color: var(--color-bright-font);
 }

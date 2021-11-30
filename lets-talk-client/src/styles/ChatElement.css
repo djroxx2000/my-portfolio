@@ -1,0 +1,30 @@
+.modal-chat-element {
+  padding: 0.5em;
+  padding-bottom: 0.8em;
+  margin: 0 0.7em;
+  border-bottom: 1px solid var(--color-dark-transparent);
+  width: inherit;
+  min-height: 3em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+
+.modal-chat-element.font-dark {
+  border-bottom: 1px solid var(--color-dark-transparent-low);
+}
+
+.modal-chat-element.font-light {
+  border-bottom: 1px solid var(--color-bright-transparent-low);
+}
+
+.chat-username {
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.chat-time {
+  font-size: 0.8em;
+}

@@ -7,74 +7,75 @@
   grid-template-areas:
     "elem1 elem1 elem2 elem3"
     "elem4 elem5 elem2 elem6"
-    "elem7 elem8 elem8 elem9";
-  grid-auto-columns: minmax(14em, auto);
-  grid-auto-rows: minmax(20em, auto);
+    "elem4 elem7 elem7 elem8";
+  grid-auto-columns: minmax(10em, auto);
+  grid-auto-rows: minmax(14em, auto);
   gap: 0.5em;
+  transition: filter 0.7s ease-in;
 }
 
-.portfolio-elem {
-  position: relative;
-  border-radius: 5px;
-  border: 1px solid red;
-}
-
-.portfolio-elem.theme-dark:hover {
-  cursor: pointer;
-  box-shadow: 0 0 3em var(--color-dark-transparent) inset;
-}
-
-.portfolio-elem.theme-bright:hover {
-  cursor: pointer;
-  box-shadow: 0 0 3em var(--color-bright-transparent) inset;
+.portfolio-elem-wrapper {
+  border-radius: 7px;
 }
 
 .portfolio-elem-1 {
   grid-area: elem1;
-  background: rgb(100, 50, 20);
+  background: rgb(61, 236, 113);
   /* min-width: 500px; */
 }
 
 .portfolio-elem-2 {
   grid-area: elem2;
-  background: rgb(56, 100, 20);
-  /* min-width: 250px; */
+  background: rgb(79, 0, 255);
 }
 
 .portfolio-elem-3 {
   grid-area: elem3;
-  background: rgb(20, 97, 100);
+  background: rgb(29, 141, 145);
   /* min-width: 250px; */
 }
 
 .portfolio-elem-4 {
   grid-area: elem4;
-  background: rgb(100, 20, 60);
+  background: rgb(255, 0, 0);
 }
 
 .portfolio-elem-5 {
   grid-area: elem5;
-  background: rgb(185, 121, 80);
+  background: rgb(202, 216, 72);
 }
 
 .portfolio-elem-6 {
   grid-area: elem6;
-  background: rgb(221, 63, 63);
+  background: rgb(255, 102, 0);
 }
 
 .portfolio-elem-7 {
   grid-area: elem7;
-  background: rgb(121, 100, 240);
+  background: rgb(56, 119, 255);
 }
 
 .portfolio-elem-8 {
   grid-area: elem8;
-  background: rgb(118, 179, 148);
+  background: rgb(255, 0, 221);
 }
 
-.portfolio-elem-9 {
-  grid-area: elem9;
-  background: rgb(44, 70, 71);
+.portfolio-vertical {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.portfolio-vertical-elem {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.portfolio-elem-2 > .portfolio-elem > .portfolio-elem-title,
+.portfolio-elem-4 > .portfolio-elem > .portfolio-elem-title {
+  height: 100%;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -82,9 +83,9 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
       "elem1 elem1 elem2"
-      "elem3 elem4 elem2"
-      "elem5 elem6 elem7"
-      "elem8 elem8 elem9";
+      "elem3 elem5 elem2"
+      "elem4 elem6 elem8"
+      "elem4 elem7 elem7";
   }
 }
 
@@ -94,10 +95,10 @@
     grid-template-areas:
       "elem1 elem1"
       "elem2 elem3"
-      "elem2 elem4"
-      "elem5 elem6"
-      "elem7 elem9"
-      "elem8 elem8";
+      "elem2 elem5"
+      "elem7 elem7"
+      "elem6 elem4"
+      "elem8 elem4";
   }
 }
 
@@ -105,20 +106,15 @@
   .portfolio-root {
     grid-template-columns: auto;
     grid-template-areas:
+      "elem1"
       "elem2"
       "elem2"
       "elem3"
-      "elem4"
       "elem5"
       "elem6"
+      "elem4"
+      "elem4"
       "elem7"
-      "elem9";
-  }
-  .portfolio-elem-1 {
-    display: none;
-  }
-
-  .portfolio-elem-8 {
-    display: none;
+      "elem8";
   }
 }

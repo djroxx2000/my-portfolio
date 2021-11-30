@@ -7,7 +7,7 @@ import {
   faPlus,
   faSun,
   faMoon,
-  faComments,
+  faDiceD6,
 } from "@fortawesome/free-solid-svg-icons";
 import { faEthereum } from "@fortawesome/free-brands-svg-icons";
 
@@ -43,7 +43,7 @@ export default function Navigation() {
     }
     setTimeout(() => {
       navElementShow();
-    }, 2500);
+    }, 2000);
   };
 
   const setCloseNavAnimations = () => {
@@ -51,13 +51,11 @@ export default function Navigation() {
     navRight.current.style.transform = "translateY(-100vh)";
     navCoreIcon.current.style.transform = "rotate(-360deg) ";
     navThemeIcon.current.style.display = "none";
-    setTimeout(() => {
-      if (state.themeDark) {
-        navCoreIcon.current.style.color = "var(--color-dark-accent)";
-      } else {
-        navCoreIcon.current.style.color = "var(--color-bright-accent)";
-      }
-    }, 2500);
+    if (state.themeDark) {
+      navCoreIcon.current.style.color = "var(--color-dark-accent)";
+    } else {
+      navCoreIcon.current.style.color = "var(--color-bright-accent)";
+    }
   };
 
   const navElementShow = () => {
@@ -77,7 +75,6 @@ export default function Navigation() {
   const toggleNavState = (ev) => {
     ev.preventDefault();
     dispatch({ type: "toggle_nav" });
-    console.log(state.navOpen);
     if (state.navOpen) {
       setOpenNavAnimations();
     } else {
@@ -88,37 +85,47 @@ export default function Navigation() {
 
   const toggleTheme = (ev) => {
     ev.preventDefault();
-    console.log("theme toggle");
     dispatch({ type: "toggle_theme" });
-    console.log(state.themeDark);
-    if (!state.themeDark) {
-      navTop.current.style.background = "var(--color-dark-accent)";
-      navTop.current.style.color = "var(--color-dark-bg)";
-      navRight.current.style.background = "var(--color-dark-accent)";
-      navRight.current.style.color = "var(--color-dark-bg)";
-      navCoreIcon.current.style.color = "var(--color-dark-bg)";
-    } else {
-      navTop.current.style.background = "var(--color-bright-accent)";
-      navTop.current.style.color = "var(--color-bright-bg)";
-      navRight.current.style.background = "var(--color-bright-accent)";
-      navRight.current.style.color = "var(--color-bright-bg)";
+    if (state.themeDark) {
       navCoreIcon.current.style.color = "var(--color-bright-bg)";
+    } else {
+      navCoreIcon.current.style.color = "var(--color-dark-bg)";
     }
-    // navTop.current.style.background = "var(--color-bright-accent)";
   };
 
   return (
     <div ref={navRoot} className="nav-root">
-      <div ref={navTop} className="nav-top">
+      <div
+        ref={navTop}
+        className={
+          "nav-top " + (state.themeDark ? "theme-dark" : "theme-light")
+        }
+      >
         <div
-          ref={navThemeIcon}
-          onClick={toggleTheme}
-          className="icon-div nav-open-icon nav-theme-icon-wrapper"
+          className="nav-open-icon tooltip"
+          onClick={() => {
+            dispatch({
+              type: "toggle_chat_modal",
+              payload: {
+                chatModalOpen: true,
+                modalOpen: true,
+                contentModalOpen: false,
+              },
+            });
+          }}
         >
+          <span
+            className={
+              "tooltiptext-bottom " +
+              (state.themeDark ? "theme-dark" : "theme-light")
+            }
+          >
+            Visitor Chat
+          </span>
           <FontAwesomeIcon
-            className="nav-theme-icon"
+            className="nav-chat-icon"
             size="2x"
-            icon={state.themeDark ? faMoon : faSun}
+            icon={faDiceD6}
           />
         </div>
       </div>
@@ -127,10 +134,23 @@ export default function Navigation() {
           <FontAwesomeIcon className="nav-core-icon" size="3x" icon={faPlus} />
         </div>
       </div>
-      <div ref={navRight} className="nav-right">
+      <div
+        ref={navRight}
+        className={
+          "nav-right " + (state.themeDark ? "theme-dark" : "theme-light")
+        }
+      >
         <div>{/* This div for making flex column work right */}</div>
         <div className="nav-page-elem-wrapper">
-          <div className="nav-open-icon">
+          <div className="nav-open-icon tooltip">
+            <span
+              className={
+                "tooltiptext-left " +
+                (state.themeDark ? "theme-dark" : "theme-light")
+              }
+            >
+              Home
+            </span>
             <a
               href="#hero"
               onClick={() => {
@@ -144,7 +164,15 @@ export default function Navigation() {
               />
             </a>
           </div>
-          <div className="nav-open-icon">
+          <div className="nav-open-icon tooltip">
+            <span
+              className={
+                "tooltiptext-left " +
+                (state.themeDark ? "theme-dark" : "theme-light")
+              }
+            >
+              Portfolio
+            </span>
             <a
               href="#portfolio"
               className="nav-open-icon"
@@ -159,9 +187,17 @@ export default function Navigation() {
               />
             </a>
           </div>
-          <div className="nav-open-icon">
+          <div className="nav-open-icon tooltip">
+            <span
+              className={
+                "tooltiptext-left " +
+                (state.themeDark ? "theme-dark" : "theme-light")
+              }
+            >
+              Unset
+            </span>
             <a
-              href="#"
+              href="#hero"
               className="nav-open-icon"
               onClick={() => {
                 dispatch({ type: "click_nav" });
@@ -176,15 +212,22 @@ export default function Navigation() {
           </div>
         </div>
         <div
-          className="nav-open-icon"
-          onClick={() => {
-            dispatch({ type: "toggle_modal" });
-          }}
+          ref={navThemeIcon}
+          onClick={toggleTheme}
+          className="nav-open-icon nav-theme-icon-wrapper tooltip"
         >
+          <span
+            className={
+              "tooltiptext-left " +
+              (state.themeDark ? "theme-dark" : "theme-light")
+            }
+          >
+            Theme
+          </span>
           <FontAwesomeIcon
-            className="nav-chat-icon"
+            className="nav-theme-icon"
             size="2x"
-            icon={faComments}
+            icon={state.themeDark ? faMoon : faSun}
           />
         </div>
       </div>

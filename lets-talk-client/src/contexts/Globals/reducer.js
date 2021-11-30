@@ -1,5 +1,24 @@
+import demo from "../../assets/demo.jpeg";
+
 export const reducer = (state, action) => {
   switch (action.type) {
+    case "username_change":
+      return {
+        ...state,
+        username: action.payload.username,
+      };
+    case "init_messages":
+      const initMessages = action.payload.messages;
+      return {
+        ...state,
+        messages: initMessages,
+      };
+    case "add_message":
+      const messages = [...state.messages, action.payload];
+      return {
+        ...state,
+        messages: messages,
+      };
     case "toggle_theme":
       return {
         ...state,
@@ -15,19 +34,41 @@ export const reducer = (state, action) => {
         ...state,
         navClick: !state.navClick,
       };
-    case "toggle_modal":
+    case "toggle_content_modal":
+      return action.payload !== undefined
+        ? {
+            ...state,
+            ...action.payload,
+          }
+        : { ...state, contentModalOpen: !state.contentModalOpen };
+    case "populate_content_modal":
       return {
         ...state,
-        modalOpen: !state.modalOpen,
+        ...action.payload,
       };
+    case "toggle_chat_modal":
+      return action.payload !== undefined
+        ? {
+            ...state,
+            ...action.payload,
+          }
+        : { ...state, chatModalOpen: !state.chatModalOpen };
     default:
       return state;
   }
 };
 
 export const initialState = {
+  username: "Unset",
+  messages: [],
   themeDark: true,
   navOpen: true,
   navClick: true,
   modalOpen: false,
+  contentModalOpen: false,
+  chatModalOpen: false,
+  contentModalTitle: "Demo",
+  contentModalDescription:
+    "This is my special little modal. Do you like it. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non nam tempore cumque quae molestias accusantium repellat, alias iure sed itaque aliquid excepturi fuga quasi aut earum repellendus dolorem vero? Qui? Eum expedita similique repudiandae ullam voluptas quas illum quis animi explicabo facilis doloremque voluptates, qui illo, consequuntur exercitationem error. Accusamus eligendi obcaecati et odio totam voluptatem illo impedit voluptatibus assumenda! Eius eaque quasi voluptatibus eligendi adipisci, reiciendis quibusdam quis, dicta, accusantium obcaecati excepturi. Esse, alias, cum dignissimos eaque ducimus quibusdam amet aliquid iste unde iusto aliquam ullam ab magni odit. Rerum ad magni harum cumque labore aliquid similique corrupti nostrum illum aut. Porro perferendis, minima molestias voluptatem vel est deserunt quia beatae unde blanditiis delectus distinctio perspiciatis maiores veniam officia.",
+  contentModalImg: demo,
 };

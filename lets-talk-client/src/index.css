@@ -5,16 +5,28 @@
   --color-dark-bg: #121212;
   --color-dark-font: #ededed;
   --color-dark-accent: #915cceb0;
-  --color-dark-transparent: rgba(200, 200, 200, 0.5);
-  --color-dark-transparent-low: rgba(150, 150, 150, 0.9);
-  --color-dark-alert: #964c58;
+  --color-dark-transparent: rgba(233, 229, 229, 0.5);
+  --color-dark-transparent-low: rgba(184, 185, 199, 0.89);
+  --color-dark-alert: #964c58c0;
+  --color-dark-gradient: linear-gradient(
+    31deg,
+    rgba(0, 0, 0, 0.7) 7%,
+    rgba(80, 80, 80, 0.7) 65%,
+    rgba(160, 160, 160, 0.7) 100%
+  );
 
   --color-bright-bg: #cdcddd;
   --color-bright-font: #121212;
   --color-bright-accent: #5c66f3b0;
   --color-bright-transparent: rgba(50, 50, 50, 0.5);
-  --color-bright-transparent-low: rgba(50, 50, 50, 0.9);
-  --color-bright-alert: #ac142f;
+  --color-bright-transparent-low: rgba(43, 43, 51, 0.9);
+  --color-bright-alert: #ac142fc0;
+  --color-bright-gradient: linear-gradient(
+    211deg,
+    rgba(30, 30, 30, 0.7) 7%,
+    rgba(100, 100, 100, 0.7) 35%,
+    rgba(160, 160, 160, 0.7) 100%
+  );
 }
 
 html {
@@ -22,10 +34,20 @@ html {
   background: var(--color-dark-bg);
 }
 
+html:focus {
+  outline: none;
+}
+
 body {
   margin: 0;
   box-sizing: border-box;
   height: 100%;
+  font-family: "IBM Plex Mono", monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input {
   font-family: "IBM Plex Mono", monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -44,7 +66,10 @@ a {
 .btn {
   color: var(--color-primary-font);
   background: var(--color-primary-bg);
-  border-radius: 50%;
   height: 100%;
   width: 100%;
+}
+
+.blur-all {
+  filter: blur(5px);
 }

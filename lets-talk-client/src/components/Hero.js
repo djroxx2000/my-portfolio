@@ -5,7 +5,7 @@ import TypeWriter from "typewriter-effect";
 import "../styles/Hero.css";
 
 export default function Hero() {
-  const [state, _] = React.useContext(GlobalContext);
+  const [state] = React.useContext(GlobalContext);
 
   useEffect(() => {
     const typeCursor = document.getElementsByClassName("Typewriter__cursor")[0];
@@ -24,7 +24,13 @@ export default function Hero() {
     "<span>ನಮಸ್ತೆ</span>.",
   ];
   return (
-    <div className={"hero " + (state.themeDark ? "theme-dark" : "theme-light")}>
+    <div
+      className={
+        "hero " +
+        (state.themeDark ? "theme-dark " : "theme-light ") +
+        (state.modalOpen ? "blur-all" : "")
+      }
+    >
       <div className="hero-title">
         <TypeWriter
           className="typewriter"
@@ -39,12 +45,23 @@ export default function Hero() {
         />
         <span>i’m</span>
         <br />
-        <span>dhananjay shettigar</span>.
+        <span>dhananjay shettigar</span>.👋🏽
       </div>
       <div className="intro-para intro">
-        I am a budding software developer with a passion to learn new things and
-        deepdive into complex theoretical topics yet to be brought to life.
-        Wanna chat?
+        I'm a budding software developer with a passion to learn new things and
+        deepdive into theoretical topics yet to be brought to life. I'm at
+        juspay working on complex financial instruments enabling millions of
+        daily transactions. Wanna chat?
+      </div>
+      <div className="email-button">
+        <a
+          href="mailto:dhananjay.shettigar2252000@gmail.com"
+          className={
+            "btn-mail " + (state.themeDark ? "theme-dark " : "theme-light ")
+          }
+        >
+          <span>Hit me up</span>
+        </a>
       </div>
     </div>
   );

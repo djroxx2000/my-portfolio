@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import { GlobalContext } from "../contexts/Globals/GlobalProvider";
+import { GlobalContext } from "../../contexts/Globals/GlobalProvider";
 
-import "../styles/Navigation.css";
+import "../../styles/Navigation.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlus,
@@ -24,13 +24,13 @@ export default function Navigation() {
     navElementHide();
   }, []);
 
-  useEffect(() => {
-    if (state.modalOpen) {
-      navRoot.current.style.display = "none";
-    } else {
-      navRoot.current.style.display = "block";
-    }
-  }, [state.modalOpen]);
+  // useEffect(() => {
+  //   if (state.modalOpen) {
+  //     navRoot.current.style.display = "none";
+  //   } else {
+  //     navRoot.current.style.display = "block";
+  //   }
+  // }, [state.modalOpen]);
 
   const setOpenNavAnimations = () => {
     navTop.current.style.transform = "translateX(0)";
@@ -74,6 +74,9 @@ export default function Navigation() {
 
   const toggleNavState = (ev) => {
     ev.preventDefault();
+    if (state.notificationOpen) {
+      return;
+    }
     dispatch({ type: "toggle_nav" });
     if (state.navOpen) {
       setOpenNavAnimations();
@@ -94,7 +97,13 @@ export default function Navigation() {
   };
 
   return (
-    <div ref={navRoot} className="nav-root">
+    <div
+      ref={navRoot}
+      className={
+        "nav-root " +
+        (state.navCoreOn && !state.modalOpen ? "view-on" : "view-off")
+      }
+    >
       <div
         ref={navTop}
         className={
@@ -110,6 +119,7 @@ export default function Navigation() {
                 chatModalOpen: true,
                 modalOpen: true,
                 contentModalOpen: false,
+                notificationOn: true,
               },
             });
           }}
@@ -129,9 +139,18 @@ export default function Navigation() {
           />
         </div>
       </div>
-      <div onClick={toggleNavState} className="nav-core">
+      <div
+        onClick={toggleNavState}
+        className={"nav-core " + (state.navCoreOn ? "" : "view-off")}
+      >
         <div ref={navCoreIcon} className="icon-div nav-core-icon-wrapper">
-          <FontAwesomeIcon className="nav-core-icon" size="3x" icon={faPlus} />
+          <FontAwesomeIcon
+            className={
+              "nav-core-icon " + (state.notificationOpen ? "nav-disabled" : "")
+            }
+            size="3x"
+            icon={faPlus}
+          />
         </div>
       </div>
       <div

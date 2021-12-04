@@ -26,11 +26,11 @@ const userMap = {};
 
 const queries = {
   create:
-    "CREATE TABLE IF NOT EXISTS Chats (id Integer PRIMARY KEY AUTOINCREMENT not NULL, messageId TEXT not NULL, message text not NULL, username text not NULL, sendTime text not NULL)",
+    "CREATE TABLE IF NOT EXISTS Chats (id Integer PRIMARY KEY AUTOINCREMENT not NULL, messageId TEXT not NULL, message text not NULL, username text not NULL, sendTime text not NULL, userId text not NULL)",
   select: "SELECT * FROM Chats",
   selectOne: "SELECT * FROM Chats LIMIT 1",
   insert:
-    "INSERT INTO Chats (messageId, message, username, sendTime) VALUES (?, ?, ?, ?)",
+    "INSERT INTO Chats (messageId, message, username, sendTime, userId) VALUES (?, ?, ?, ?, ?)",
   count: "SELECT COUNT(id) as count FROM Chats;",
   delete: "DELETE FROM Chats WHERE id < ",
 };
@@ -53,6 +53,20 @@ app.use(express.static(__dirname + "/public/"));
   });
   // await db.exec("DROP TABLE Chats");
   await db.exec(queries.create);
+
+  app.post("/deleteChat", async (req, res) => {
+    console.log(req.body);
+    if (req.body.key === "9833189615") {
+      try {
+        await db.exec("DELETE FROM Chats");
+        res.status(200).json({ status: "SUCCESS" });
+      } catch (error) {
+        res.status(500).json({ status: "INTERNAL_SERVER_ERR", error: error });
+      }
+    } else {
+      res.status(401).json({ status: "UNAUTHORIZED" });
+    }
+  });
 
   io.on("connection", async (socket) => {
     // Check max capacity
@@ -80,7 +94,8 @@ app.use(express.static(__dirname + "/public/"));
       suffix = ` OFFSET ${chatCount - 50}`;
     }
     const prevChats = await db.all(queries.select + suffix);
-    // Welcome new socket to other members
+
+    // Initial connection information
     socket.emit("connInit", {
       id: socket.id,
       username: randomName,
@@ -98,15 +113,16 @@ app.use(express.static(__dirname + "/public/"));
       .to(ROOM)
       .emit("userIn", { id: socket.id, username: userMap[socket.id] });
 
-    // Personal username
-    socket.on("usernameChange", (res) => {
-      const payload = {
-        id: socket.id,
-        username: res.username,
-      };
-      socket.broadcast.to(ROOM).emit("usernameChange", payload);
-    });
+    // Personal username: Do I wanna store usernames?
+    // socket.on("usernameChange", (res) => {
+    //   const payload = {
+    //     id: socket.id,
+    //     username: res.username,
+    //   };
+    //   socket.broadcast.to(ROOM).emit("usernameChange", payload);
+    // });
 
+    // Roomwide message
     socket.on("message", async (res) => {
       console.log("Incoming message to room from", res.username);
       const { count } = await db.get(queries.count);
@@ -120,14 +136,17 @@ app.use(express.static(__dirname + "/public/"));
         2: res.message,
         3: res.username,
         4: res.sendTime,
+        5: socket.id,
       });
       await stmt.run();
+      res.userId = socket.id;
       socket.to(ROOM).emit("message", res);
     });
 
     // Personal message
     socket.on("userMessage", (res) => {
       let userId = res.receiver;
+      console.log(res);
       socket.to(userId).emit("userMessage", res);
     });
 
@@ -135,6 +154,18 @@ app.use(express.static(__dirname + "/public/"));
     socket.on("gameInvite", (res) => {
       let userId = res.receiver;
       socket.to(userId).emit("gameInvite", res.payload);
+    });
+
+    // Previously sent invite accepted
+    socket.on("acceptInvite", (res) => {
+      let userId = res.receiver;
+      socket.to(userId).emit("inviteAccepted", res.payload);
+    });
+
+    // Previously sent invite rejected
+    socket.on("rejectInvite", (res) => {
+      let userId = res.receiver;
+      socket.to(userId).emit("inviteRejected", res.payload);
     });
 
     // Alert everyone that someone left

@@ -15,7 +15,7 @@ export const getUTCTimeObj = () => {
   let date = new Date();
   return {
     year: date.getUTCFullYear(),
-    month: date.getUTCMonth() + 1,
+    month: date.getUTCMonth(),
     date: date.getUTCDate(),
     hours: date.getUTCHours(),
     minutes: date.getUTCMinutes(),

@@ -67,3 +67,18 @@
   font-size: 2.5em;
   padding-bottom: 0.3em;
 }
+
+@media only screen and (max-width: 500px) {
+  .modal-title {
+    font-size: 1.7em;
+  }
+
+  .modal-close-btn {
+    top: 0;
+  }
+
+  .modal-content-root {
+    height: 75vh;
+    top: 10vh;
+  }
+}

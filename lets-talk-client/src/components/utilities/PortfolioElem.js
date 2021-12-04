@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
-import { GlobalContext } from "../contexts/Globals/GlobalProvider";
+import { GlobalContext } from "../../contexts/Globals/GlobalProvider";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import "../styles/PortfolioElem.css";
+import "../../styles/PortfolioElem.css";
 
 export default function PortfolioElem({ title, description, icon }) {
   const [state] = React.useContext(GlobalContext);

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { GlobalContext } from "../contexts/Globals/GlobalProvider";
 
-import PortfolioElem from "./PortfolioElem";
+import PortfolioElem from "./utilities/PortfolioElem";
 import "../styles/PortfolioGrid.css";
 
 import {
@@ -9,6 +9,7 @@ import {
   languagesDescription,
   skillsView,
   skillsDescription,
+  websiteDescription,
 } from "./loose/LooseComponents";
 
 export default function PortfolioGrid() {
@@ -27,12 +28,12 @@ export default function PortfolioGrid() {
     }
   }, [state.themeDark]);
 
-  const openModalElem2 = (e) => {
+  const openModalElem = (title, desc) => {
     dispatch({
       type: "populate_content_modal",
       payload: {
-        contentModalTitle: "I speak ...",
-        contentModalDescription: languagesDescription,
+        contentModalTitle: title,
+        contentModalDescription: desc,
       },
     });
     dispatch({
@@ -43,29 +44,46 @@ export default function PortfolioGrid() {
         chatModalOpen: false,
       },
     });
+  };
+
+  const openModalElem1 = (e) => {
+    openModalElem("Call me DJ", "Unset");
+  };
+
+  const openModalElem2 = (e) => {
+    openModalElem("I speak ...", languagesDescription);
+  };
+
+  const openModalElem3 = (e) => {
+    openModalElem();
   };
 
   const openModalElem4 = (e) => {
-    dispatch({
-      type: "populate_content_modal",
-      payload: {
-        contentModalTitle: "I work with ...",
-        contentModalDescription: skillsDescription,
-      },
-    });
-    dispatch({
-      type: "toggle_content_modal",
-      payload: {
-        contentModalOpen: true,
-        modalOpen: true,
-        chatModalOpen: false,
-      },
-    });
+    openModalElem("I work with ...", skillsDescription);
+  };
+
+  const openModalElem5 = (e) => {
+    openModalElem("It was fun until it wasn't...", websiteDescription);
+  };
+
+  const openModalElem6 = (e) => {
+    openModalElem();
+  };
+
+  const openModalElem7 = (e) => {
+    openModalElem();
+  };
+
+  const openModalElem8 = (e) => {
+    openModalElem();
   };
 
   return (
-    <div className={"portfolio-root " + (state.modalOpen ? "blur-all" : "")}>
-      <div className="portfolio-elem-1 portfolio-elem-wrapper">
+    <div className={"portfolio-root " + (!state.modalOpen ? "" : "blur-all")}>
+      <div
+        className="portfolio-elem-1 portfolio-elem-wrapper"
+        onClick={openModalElem1}
+      >
         <PortfolioElem
           title={<span className="single-title">Bits about me</span>}
           description="Hey there, this is my personal website so I'm putting it out there. Let the world know about me, my dreams and stuff 😂. Tap to know more..."
@@ -77,10 +95,13 @@ export default function PortfolioGrid() {
       >
         <PortfolioElem title={languagesView} />
       </div>
-      <div className="portfolio-elem-3 portfolio-elem-wrapper">
+      <div
+        className="portfolio-elem-3 portfolio-elem-wrapper"
+        onClick={openModalElem3}
+      >
         <PortfolioElem
-          title={<span className="single-title">Bits about this website</span>}
-          description="I started out making a regular old portfolio. Tap for details..."
+          title={<span className="single-title">I write</span>}
+          description="I have the ability to sit very still and write one whole page a day..."
         />
       </div>
       <div
@@ -89,28 +110,40 @@ export default function PortfolioGrid() {
       >
         <PortfolioElem title={skillsView} />
       </div>
-      <div className="portfolio-elem-5 portfolio-elem-wrapper">
+      <div
+        className="portfolio-elem-5 portfolio-elem-wrapper"
+        onClick={openModalElem5}
+      >
         <PortfolioElem
           title={<span className="single-title">This website</span>}
           description="Now I understand why so many websites don't have a theme toggle..."
         />
       </div>
-      <div className="portfolio-elem-6 portfolio-elem-wrapper">
+      <div
+        className="portfolio-elem-6 portfolio-elem-wrapper"
+        onClick={openModalElem6}
+      >
         <PortfolioElem
-          title={<span className="single-title">Bits about this website</span>}
-          description="I started out making a regular old portfolio. Tap for details..."
+          title={<span className="single-title">Happiness</span>}
+          description="Finishing this website was a moment of joy among so many others..."
         />
       </div>
-      <div className="portfolio-elem-7 portfolio-elem-wrapper">
+      <div
+        className="portfolio-elem-7 portfolio-elem-wrapper"
+        onClick={openModalElem7}
+      >
         <PortfolioElem
-          title={<span className="single-title">Bits about this website</span>}
-          description="I started out making a regular old portfolio. Tap for details..."
+          title={<span className="single-title">The Plan</span>}
+          description="I am not one to make daily regimens or tight schedules but I do have hopes and aspirations for the future just like you. And the future looks good..."
         />
       </div>
-      <div className="portfolio-elem-8 portfolio-elem-wrapper">
+      <div
+        className="portfolio-elem-8 portfolio-elem-wrapper"
+        onClick={openModalElem8}
+      >
         <PortfolioElem
-          title={<span className="single-title">Bits about this website</span>}
-          description="I started out making a regular old portfolio. Tap for details..."
+          title={<span className="single-title">What I've done</span>}
+          description="I like to think I make a considerable difference wherever I go..."
         />
       </div>
     </div>

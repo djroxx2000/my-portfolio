@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import { GlobalContext } from "../contexts/Globals/GlobalProvider";
+import { GlobalContext } from "../../contexts/Globals/GlobalProvider";
 
-import "../styles/ContentModal.css";
+import "../../styles/ContentModal.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 

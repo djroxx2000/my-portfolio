@@ -1,19 +1,32 @@
 import React, { useEffect, useRef } from "react";
-import { GlobalContext } from "../contexts/Globals/GlobalProvider";
+import { GlobalContext } from "../../contexts/Globals/GlobalProvider";
 
-import "../styles/ChatElement.css";
+import "../../styles/ChatElement.css";
 
-import { getLocalTimeFromUTCTime } from "../utility/utility";
+import { getLocalTimeFromUTCTime } from "../../utility/utility";
 
 export default function ChatElement({ message }) {
-  const [state] = React.useContext(GlobalContext);
+  const [state, dispatch] = React.useContext(GlobalContext);
   const curElement = useRef();
   let curTime = getLocalTimeFromUTCTime(
     JSON.parse(message.sendTime)
   ).toLocaleString();
+
+  const openChatOptions = (ev) => {
+    ev.preventDefault();
+    if (message.userId === state.userId) {
+      return;
+    }
+    dispatch({
+      type: "toggle_chat_options",
+      payload: { chatOptionsOpen: true, opponentId: message.userId },
+    });
+  };
+
   useEffect(() => {
     curElement.current.scrollIntoView();
   }, []);
+
   return (
     <div
       className={
@@ -21,7 +34,7 @@ export default function ChatElement({ message }) {
       }
       ref={curElement}
     >
-      <div className="chat-username">
+      <div className="chat-username" onClick={openChatOptions}>
         {message.username + " · "}{" "}
         <span className="chat-time">[{curTime}]</span>
       </div>

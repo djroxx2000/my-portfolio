@@ -28,7 +28,7 @@ export default function Hero() {
       className={
         "hero " +
         (state.themeDark ? "theme-dark " : "theme-light ") +
-        (state.modalOpen ? "blur-all" : "")
+        (!state.modalOpen ? "" : "blur-all")
       }
     >
       <div className="hero-title">

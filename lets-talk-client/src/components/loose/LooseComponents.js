@@ -74,3 +74,16 @@ export const skillsDescription = (
     </p>
   </div>
 );
+
+export const websiteDescription = (
+  <div>
+    <code>themeDark ? "theme-dark" : "theme-light"</code>
+  </div>
+);
+
+export const workDescription = (
+  <div>
+    At the time of editing this section, I got some stuff going on but I'm still
+    pretty much a student. And I plan on being one for a long long time...
+  </div>
+);

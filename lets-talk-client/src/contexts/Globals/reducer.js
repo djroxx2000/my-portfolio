@@ -6,6 +6,7 @@ export const reducer = (state, action) => {
       return {
         ...state,
         username: action.payload.username,
+        userId: action.payload.userId,
       };
     case "init_messages":
       const initMessages = action.payload.messages;
@@ -53,6 +54,21 @@ export const reducer = (state, action) => {
             ...action.payload,
           }
         : { ...state, chatModalOpen: !state.chatModalOpen };
+    case "toggle_notification":
+      return {
+        ...state,
+        ...action.payload,
+      };
+    case "toggle_notification_pref":
+      return {
+        ...state,
+        notificationOn: !state.notificationOn,
+      };
+    case "toggle_chat_options":
+      return {
+        ...state,
+        ...action.payload,
+      };
     default:
       return state;
   }
@@ -60,6 +76,7 @@ export const reducer = (state, action) => {
 
 export const initialState = {
   username: "Unset",
+  userId: "Unset",
   messages: [],
   themeDark: true,
   navOpen: true,
@@ -71,4 +88,12 @@ export const initialState = {
   contentModalDescription:
     "This is my special little modal. Do you like it. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non nam tempore cumque quae molestias accusantium repellat, alias iure sed itaque aliquid excepturi fuga quasi aut earum repellendus dolorem vero? Qui? Eum expedita similique repudiandae ullam voluptas quas illum quis animi explicabo facilis doloremque voluptates, qui illo, consequuntur exercitationem error. Accusamus eligendi obcaecati et odio totam voluptatem illo impedit voluptatibus assumenda! Eius eaque quasi voluptatibus eligendi adipisci, reiciendis quibusdam quis, dicta, accusantium obcaecati excepturi. Esse, alias, cum dignissimos eaque ducimus quibusdam amet aliquid iste unde iusto aliquam ullam ab magni odit. Rerum ad magni harum cumque labore aliquid similique corrupti nostrum illum aut. Porro perferendis, minima molestias voluptatem vel est deserunt quia beatae unde blanditiis delectus distinctio perspiciatis maiores veniam officia.",
   contentModalImg: demo,
+  opponentId: null,
+  curGame: null,
+  playGame: false,
+  notificationOpen: 0,
+  notificationMsg: "Someone is inviting you to TicTacToe",
+  notificationOn: true,
+  navCoreOn: true,
+  chatOptionsOpen: false,
 };

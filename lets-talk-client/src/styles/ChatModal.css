@@ -119,6 +119,7 @@
   overflow: scroll;
   display: flex;
   flex-direction: column;
+  scroll-behavior: smooth;
 }
 
 .modal-chat-list.theme-dark {
@@ -129,6 +130,27 @@
 .modal-chat-list.theme-dark {
   border: 1px solid var(--color-bright-transparent-low);
   color: var(--color-bright-font);
+}
+
+.username-change {
+  font-size: 0.7em;
+  margin-left: 0.5em;
+}
+
+.username-change.font-dark {
+  color: var(--color-dark-accent);
+}
+
+.username-change.font-light {
+  color: var(--color-bright-accent);
+}
+
+.username-change:hover {
+  cursor: pointer;
+}
+
+.username-span {
+  font-weight: 500;
 }
 
 @media only screen and (max-width: 640px) {
@@ -166,5 +188,13 @@
   .modal-chat-input-box {
     height: 45px;
     font-size: 1.2em;
+  }
+
+  .username-line {
+    display: none;
+  }
+
+  .username-span {
+    font-size: 0.9em;
   }
 }

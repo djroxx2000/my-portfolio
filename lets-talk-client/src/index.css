@@ -15,13 +15,13 @@
     rgba(160, 160, 160, 0.7) 100%
   );
 
-  --color-bright-bg: #cdcddd;
-  --color-bright-font: #121212;
-  --color-bright-accent: #5c66f3b0;
-  --color-bright-transparent: rgba(50, 50, 50, 0.5);
-  --color-bright-transparent-low: rgba(43, 43, 51, 0.9);
-  --color-bright-alert: #ac142fc0;
-  --color-bright-gradient: linear-gradient(
+  --color-light-bg: #cdcddd;
+  --color-light-font: #121212;
+  --color-light-accent: #5c66f3b0;
+  --color-light-transparent: rgba(50, 50, 50, 0.5);
+  --color-light-transparent-low: rgba(43, 43, 51, 0.9);
+  --color-light-alert: #ac142fc0;
+  --color-light-gradient: linear-gradient(
     211deg,
     rgba(30, 30, 30, 0.7) 7%,
     rgba(100, 100, 100, 0.7) 35%,
@@ -71,5 +71,5 @@ a {
 }
 
 .blur-all {
-  filter: blur(5px);
+  filter: blur(4px);
 }

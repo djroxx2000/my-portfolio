@@ -35,7 +35,7 @@
   margin: 0 2px;
   padding: 10px;
   border-radius: 0 2em 2em 0;
-  color: var(--color-bright-bg);
+  color: var(--color-light-bg);
 }
 
 .options-chat-input {
@@ -55,7 +55,7 @@
 }
 
 .options-chat-input.font-light {
-  color: var(--color-bright-font);
+  color: var(--color-light-font);
 }
 
 .options-chat-input-box {
@@ -65,7 +65,7 @@
   background: inherit;
   border-radius: 2em 0 0 2em;
   border: 1px solid var(--color-dark-transparent-low);
-  color: var(--color-bright-bg);
+  color: var(--color-light-bg);
   font-size: 1.2em;
 }
 
@@ -90,5 +90,5 @@
 
 .chat-close:hover {
   cursor: pointer;
-  color: var(--color-bright-alert);
+  color: var(--color-light-alert);
 }

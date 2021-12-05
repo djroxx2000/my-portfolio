@@ -21,7 +21,7 @@
 }
 
 .Typewriter__cursor {
-  color: var(--color-bright-accent);
+  color: var(--color-light-accent);
 }
 
 .theme-dark {
@@ -30,13 +30,15 @@
 }
 
 .theme-light {
-  caret-color: var(--color-bright-accent);
-  color: var(--color-bright-font);
+  caret-color: var(--color-light-accent);
+  color: var(--color-light-font);
 }
 
 .email-button {
   padding-top: 4em;
   /* max-width: 15em; */
+  z-index: 107;
+  width: 10em;
 }
 
 .btn-mail {
@@ -44,18 +46,19 @@
   border-radius: 1.7em;
   font-weight: 500;
   font-size: 1.1em;
+  transition: box-shadow 0.2s ease-in;
 }
 
 .btn-mail.theme-dark {
-  background: var(--color-dark-bg);
+  background: var(--color-light-transparent);
   border: 2px solid var(--color-dark-accent);
   color: var(--color-dark-font);
 }
 
 .btn-mail.theme-light {
-  background: var(--color-bright-bg);
-  border: 2px solid var(--color-bright-accent);
-  color: var(--color-bright-font);
+  background: var(--color-dark-transparent);
+  border: 2px solid var(--color-light-accent);
+  color: var(--color-light-font);
 }
 
 .btn-mail:hover {
@@ -67,7 +70,7 @@
 }
 
 .btn-mail.theme-light:hover {
-  box-shadow: 0 0 0.5em var(--color-bright-transparent-low) inset;
+  box-shadow: 0 0 0.5em var(--color-light-transparent-low) inset;
 }
 
 @media only screen and (max-width: 640px) {

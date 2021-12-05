@@ -4,7 +4,7 @@ import { GlobalContext } from "../../contexts/Globals/GlobalProvider";
 import "../../styles/ChatModal.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-import ChatElement from "../utilities/ChatElement";
+import ChatElem from "../utilities/ChatElem";
 
 import { v4 as uuidv4 } from "uuid";
 import { getUTCTimeObj } from "../../utility/utility";
@@ -77,7 +77,6 @@ export default function ChatModal() {
     });
 
     socket.on("message", (payload) => {
-      console.log("Global", payload);
       dispatch({ type: "add_message", payload: payload });
     });
 
@@ -146,7 +145,7 @@ export default function ChatModal() {
             style={
               state.themeDark
                 ? { color: "var(--color-dark-font)" }
-                : { color: "var(--color-bright-font)" }
+                : { color: "var(--color-light-font)" }
             }
             ref={userInput}
           />
@@ -167,7 +166,7 @@ export default function ChatModal() {
         </div>
         <div className="modal-chat-list">
           {state.messages.map((message) => (
-            <ChatElement key={message.messageId} message={message} />
+            <ChatElem key={message.messageId} message={message} />
           ))}
         </div>
       </div>

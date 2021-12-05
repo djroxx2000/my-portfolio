@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import { GlobalContext } from "../../contexts/Globals/GlobalProvider";
 
-import "../../styles/ChatElement.css";
+import "../../styles/ChatElem.css";
 
 import { getLocalTimeFromUTCTime } from "../../utility/utility";
 
-export default function ChatElement({ message }) {
+export default function ChatElem({ message }) {
   const [state, dispatch] = React.useContext(GlobalContext);
   const curElement = useRef();
   let curTime = getLocalTimeFromUTCTime(

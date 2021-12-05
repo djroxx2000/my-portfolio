@@ -1,0 +1,59 @@
+.game-root {
+  width: 80vw;
+  margin: 0 auto;
+  padding: 4em 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-columns: minmax(10em, auto);
+  grid-auto-rows: minmax(14em, auto);
+  gap: 0.5em;
+  transition: filter 0.7s ease-in;
+}
+
+.game-elem-wrapper {
+  border-radius: 7px;
+}
+
+.game-elem-1 {
+  background: gold;
+  /* min-width: 500px; */
+}
+
+/* .game-elem-2 {
+  background: rgb(79, 0, 255); */
+/* } */
+
+.game-vertical {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+.game-vertical-elem {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.game-elem-2 > .game-elem > .game-elem-title {
+  height: 100%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .game-root {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .game-root {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .game-root {
+    grid-template-columns: auto;
+  }
+}

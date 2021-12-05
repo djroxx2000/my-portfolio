@@ -7,7 +7,8 @@ import {
   faPlus,
   faSun,
   faMoon,
-  faDiceD6,
+  // faDiceD6,
+  faCommentAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { faEthereum } from "@fortawesome/free-brands-svg-icons";
 
@@ -39,7 +40,7 @@ export default function Navigation() {
     if (state.themeDark) {
       navCoreIcon.current.style.color = "var(--color-dark-bg)";
     } else {
-      navCoreIcon.current.style.color = "var(--color-bright-bg)";
+      navCoreIcon.current.style.color = "var(--color-light-bg)";
     }
     setTimeout(() => {
       navElementShow();
@@ -54,7 +55,7 @@ export default function Navigation() {
     if (state.themeDark) {
       navCoreIcon.current.style.color = "var(--color-dark-accent)";
     } else {
-      navCoreIcon.current.style.color = "var(--color-bright-accent)";
+      navCoreIcon.current.style.color = "var(--color-light-accent)";
     }
   };
 
@@ -90,7 +91,7 @@ export default function Navigation() {
     ev.preventDefault();
     dispatch({ type: "toggle_theme" });
     if (state.themeDark) {
-      navCoreIcon.current.style.color = "var(--color-bright-bg)";
+      navCoreIcon.current.style.color = "var(--color-light-bg)";
     } else {
       navCoreIcon.current.style.color = "var(--color-dark-bg)";
     }
@@ -135,7 +136,7 @@ export default function Navigation() {
           <FontAwesomeIcon
             className="nav-chat-icon"
             size="2x"
-            icon={faDiceD6}
+            icon={faCommentAlt}
           />
         </div>
       </div>
@@ -213,7 +214,7 @@ export default function Navigation() {
                 (state.themeDark ? "theme-dark" : "theme-light")
               }
             >
-              Unset
+              Coming Soon
             </span>
             <a
               href="#hero"

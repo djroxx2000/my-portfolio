@@ -16,7 +16,7 @@
 }
 
 .modal-chat-element.font-light {
-  border-bottom: 1px solid var(--color-bright-transparent-low);
+  border-bottom: 1px solid var(--color-light-transparent-low);
 }
 
 .chat-username {

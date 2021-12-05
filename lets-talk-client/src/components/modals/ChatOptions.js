@@ -37,7 +37,6 @@ export default function ChatOptions() {
   };
 
   const closeChatOptions = (ev) => {
-    console.log("Closing chat options");
     dispatch({
       type: "toggle_chat_options",
       payload: { chatOptionsOpen: false },
@@ -59,7 +58,7 @@ export default function ChatOptions() {
             style={
               state.themeDark
                 ? { color: "var(--color-dark-font)" }
-                : { color: "var(--color-bright-font)" }
+                : { color: "var(--color-light-font)" }
             }
             ref={userInput}
           />
@@ -78,7 +77,7 @@ export default function ChatOptions() {
             />
           </button>
         </div>
-        <div className="game-invite-menu">Invite for:</div>
+        {/* <div className="game-invite-menu">Invite for:</div> */}
         <div className="chat-close" onClick={closeChatOptions}>
           <FontAwesomeIcon
             className="modal-send-icon"

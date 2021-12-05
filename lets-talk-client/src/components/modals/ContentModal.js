@@ -27,11 +27,11 @@ export default function ContentModal() {
 
   useEffect(() => {
     if (state.themeDark) {
-      modal.current.style.background = "var(--color-bright-transparent-low)";
+      modal.current.style.background = "var(--color-light-transparent-low)";
       modalClose.current.style.color = "var(--color-dark-alert)";
     } else {
       modal.current.style.background = "var(--color-dark-transparent-low)";
-      modalClose.current.style.color = "var(--color-bright-alert)";
+      modalClose.current.style.color = "var(--color-light-alert)";
     }
   }, [state.themeDark]);
 

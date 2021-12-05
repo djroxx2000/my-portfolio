@@ -39,15 +39,15 @@
 }
 
 .modal-chat-window.font-dark {
-  background: var(--color-bright-transparent-low);
+  background: var(--color-light-transparent-low);
   border-bottom: 1px solid var(--color-dark-transparent-low);
   color: var(--color-dark-font);
 }
 
 .modal-chat-window.font-light {
   background: var(--color-dark-transparent);
-  border-bottom: 1px solid var(--color-bright-transparent-low);
-  color: var(--color-bright-font);
+  border-bottom: 1px solid var(--color-light-transparent-low);
+  color: var(--color-light-font);
 }
 
 .modal-chat-info,
@@ -67,7 +67,7 @@
 }
 
 .modal-chat-input.font-light {
-  color: var(--color-bright-font);
+  color: var(--color-light-font);
 }
 
 .modal-chat-info {
@@ -85,7 +85,7 @@
   background: inherit;
   border-radius: 2em 0 0 2em;
   border: 1px solid var(--color-dark-transparent-low);
-  color: var(--color-bright-bg);
+  color: var(--color-light-bg);
 }
 
 .modal-chat-input-box:focus,
@@ -101,7 +101,7 @@
   margin: 0 2px;
   padding: 10px;
   border-radius: 0 2em 2em 0;
-  color: var(--color-bright-bg);
+  color: var(--color-light-bg);
 }
 
 .modal-chat-send:hover {
@@ -128,8 +128,8 @@
 }
 
 .modal-chat-list.theme-dark {
-  border: 1px solid var(--color-bright-transparent-low);
-  color: var(--color-bright-font);
+  border: 1px solid var(--color-light-transparent-low);
+  color: var(--color-light-font);
 }
 
 .username-change {
@@ -142,7 +142,7 @@
 }
 
 .username-change.font-light {
-  color: var(--color-bright-accent);
+  color: var(--color-light-accent);
 }
 
 .username-change:hover {

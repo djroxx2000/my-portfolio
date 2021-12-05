@@ -12,7 +12,7 @@ export default function Hero() {
     if (state.themeDark) {
       typeCursor.style.color = "var(--color-dark-accent)";
     } else {
-      typeCursor.style.color = "var(--color-bright-accent)";
+      typeCursor.style.color = "var(--color-light-accent)";
     }
   }, [state.themeDark]);
 

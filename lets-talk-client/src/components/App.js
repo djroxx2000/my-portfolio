@@ -10,6 +10,8 @@ import ChatModal from "./modals/ChatModal";
 import Footer from "./Footer";
 import Notification from "./utilities/Notification";
 import ChatOptions from "./modals/ChatOptions";
+// import GameList from "./GameList";
+import GameModal from "./modals/GameModal";
 
 function App() {
   // Welcome Log
@@ -45,10 +47,11 @@ function App() {
           notificationOpen: 1,
           notificationMsg: `${payload.username}: ${payload.message}`,
           navCoreOn: false,
+          checkOn: true,
         },
       });
-      console.log(payload);
     });
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -64,7 +67,7 @@ function App() {
       document.documentElement.style.background = "var(--color-dark-bg)";
       document.getElementById("favicon").href = "./favicon_dark.ico";
     } else {
-      document.documentElement.style.background = "var(--color-bright-bg)";
+      document.documentElement.style.background = "var(--color-light-bg)";
       document.getElementById("favicon").href = "./favicon_light.ico";
     }
   }, [state.themeDark]);
@@ -84,13 +87,13 @@ function App() {
         hero.current.focus();
     }
   };
-
   return (
     <div className={"App " + (state.themeDark ? "theme-dark" : "theme-light")}>
       <Notification />
       <ContentModal />
       <ChatModal />
       <ChatOptions />
+      <GameModal />
       <div>
         <Navigation />
       </div>
@@ -100,6 +103,7 @@ function App() {
       <div ref={portfolio}>
         <PortfolioGrid />
       </div>
+      <div>{/* <GameList /> */}</div>
       <div>
         <Footer />
       </div>

@@ -2,7 +2,7 @@ import React from "react";
 import { reducer, initialState } from "./reducer";
 import connect from "socket.io-client";
 
-const socket = connect("http://localhost:5000", {
+const socket = connect(process.env.REACT_APP_SERVER_URL, {
   transports: ["websocket"],
 });
 

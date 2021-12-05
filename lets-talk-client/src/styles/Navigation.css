@@ -36,8 +36,8 @@
 
 .nav-top.theme-light,
 .nav-right.theme-light {
-  background: var(--color-bright-accent);
-  color: var(--color-bright-bg);
+  background: var(--color-light-accent);
+  color: var(--color-light-bg);
 }
 
 .nav-core {
@@ -139,8 +139,8 @@
 
 .tooltip .tooltiptext-left.theme-light,
 .tooltip .tooltiptext-bottom.theme-light {
-  background-color: var(--color-bright-bg);
-  color: var(--color-bright-font);
+  background-color: var(--color-light-bg);
+  color: var(--color-light-font);
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */

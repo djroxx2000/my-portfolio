@@ -55,7 +55,7 @@
     align-items: center;
   }
 
-  .notification-btn-wrapper {
+  .notification-btn-wrapper.view-on {
     display: flex;
     flex-direction: column;
     margin-right: 1em;

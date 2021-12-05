@@ -1,6 +1,9 @@
 import demo from "../../assets/demo.jpeg";
 
 export const reducer = (state, action) => {
+  // Debug logs
+  // console.log(action.type);
+  // console.log(action.payload);
   switch (action.type) {
     case "username_change":
       return {
@@ -55,6 +58,10 @@ export const reducer = (state, action) => {
           }
         : { ...state, chatModalOpen: !state.chatModalOpen };
     case "toggle_notification":
+      if (action.payload.checkOn && !state.notificationOn) {
+        return state;
+      }
+      delete action.payload.checkOn;
       return {
         ...state,
         ...action.payload,
@@ -62,9 +69,14 @@ export const reducer = (state, action) => {
     case "toggle_notification_pref":
       return {
         ...state,
-        notificationOn: !state.notificationOn,
+        ...action.payload,
       };
     case "toggle_chat_options":
+      return {
+        ...state,
+        ...action.payload,
+      };
+    case "toggle_game":
       return {
         ...state,
         ...action.payload,

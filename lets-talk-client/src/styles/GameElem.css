@@ -1,4 +1,4 @@
-.portfolio-elem {
+.game-elem {
   display: flex;
   flex-direction: column;
   gap: 0.3em;
@@ -9,15 +9,15 @@
   box-sizing: border-box;
 }
 
-.portfolio-elem.theme-dark {
+.game-elem.theme-dark {
   background: var(--color-dark-gradient);
 }
 
-.portfolio-elem.theme-light {
+.game-elem.theme-light {
   background: var(--color-light-gradient);
 }
 
-.portfolio-elem:hover {
+.game-elem:hover {
   cursor: pointer;
   box-shadow: 0 0 4em var(--color-light-transparent) inset;
 }
@@ -30,7 +30,7 @@
   display: block;
 }
 
-.portfolio-elem-overlay {
+.game-elem-overlay {
   border-radius: 7px;
   z-index: 106;
   position: absolute;
@@ -43,19 +43,19 @@
   transition: opacity 0.3s ease-in;
 }
 
-.portfolio-elem-overlay.theme-dark {
+.game-elem-overlay.theme-dark {
   background: rgba(255, 255, 255, 0.4);
 }
 
-.portfolio-elem-overlay.theme-light {
+.game-elem-overlay.theme-light {
   background: rgba(0, 0, 0, 0.4);
 }
 
-.portfolio-elem-overlay:hover {
+.game-elem-overlay:hover {
   opacity: 0;
 }
 
-.portfolio-elem-separator {
+.game-elem-separator {
   width: 0;
   height: 0.2em;
   border-radius: 2px;
@@ -64,15 +64,15 @@
   margin-bottom: 1em;
 }
 
-.portfolio-elem-separator.theme-dark {
+.game-elem-separator.theme-dark {
   background: var(--color-dark-font);
 }
 
-.portfolio-elem-separator.theme-light {
+.game-elem-separator.theme-light {
   background: var(--color-light-font);
 }
 
-.portfolio-elem:hover > .portfolio-elem-separator {
+.game-elem:hover > .game-elem-separator {
   width: 75%;
 }
 

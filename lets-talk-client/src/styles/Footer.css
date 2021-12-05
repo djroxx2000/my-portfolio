@@ -11,7 +11,7 @@
 }
 
 .footer-root.theme-light {
-  border-top: 2px solid var(--color-bright-font);
+  border-top: 2px solid var(--color-light-font);
 }
 
 .social-row {
@@ -35,7 +35,7 @@
 
 .footer-social-icon.icon-light:hover {
   padding: 0px;
-  color: var(--color-bright-accent);
+  color: var(--color-light-accent);
 }
 
 .footer-message {

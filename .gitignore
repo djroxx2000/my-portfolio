@@ -30,3 +30,5 @@ lets-talk-client/public/favicon_light.zip
 lets-talk-client/public/favicon.png
 lets-talk-client/public/favicon.ico
 lets-talk-client/src/assets/demo.jpeg
+lets-talk-client/.env
+lets-talk-server/chatDatabase.db

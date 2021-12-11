@@ -2,7 +2,7 @@
 
 I created this website to serve as a simple web based portfolio detailing my projects and work experience while adding a fun little visitor chat to keep it lively.
 
-The front end is hosted at Netlify using a custom domain name.
+The front end is hosted at Netlify using a custom domain name from freenom.
 The backend is hosted at heroku using heroku's internal postgres server as the data store. I chose these 2 because they are both basically free and still feature-rich for frontend and backend deployments respectively.
 The tech stack is basically just JavaScript. React for client and Node.js using express and socket.io for the server.
 

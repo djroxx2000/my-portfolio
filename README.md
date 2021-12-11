@@ -20,10 +20,10 @@ You can visit at https://dhananjay.cf
 ### Steps:
 
 1. Fork and clone the repo to your local machine
-2. Run `npm i` in client folder
-3. Run `npm start` to start react client in dev mode on port 3000
-4. Run `npm i` in server folder
+2. Run `npm i` in both the client and server folder
+3. Add .env to server folder for `PORT`, `ROOMID` and `NODE_ENV` and to client folder for `REACT_APP_SERVER_URL`
+4. Run `npm start` to start react client in dev mode on port 3000
 5. Run `npm run dev` to start dev environment which will watch and auto rebuild on changes
-6. Run `npm build` in client folder to generate production ready front end
+6. Run `npm build` in client folder to generate production ready client
 7. Modify .env for production environment in server folder
 8. Run `npm run start` in server folder for production server with 404 handling
